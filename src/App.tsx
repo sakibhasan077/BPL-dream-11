@@ -1,8 +1,12 @@
+import Navbar from "./component/navbar/Navbar"
+
 function App() {
 
 
   return (
-    <>Hello</>
+    <>
+      <Navbar></Navbar>
+    </>
   )
 }
 
