@@ -3,23 +3,40 @@ import BgShadow from "../../assets/image/bg-shadow.png";
 
 const HeroSection = () => {
   return (
-    <main className={`container mx-auto  bg-[#131313] rounded-[20px] mt-31`}>
+    <main className="container mx-auto mt-24 px-4 sm:mt-28 lg:mt-31 ">
       <div
-        className="flex flex-col w-full items-center  bg-cover min-h-137.5 rounded-[20px]  "
+        className="flex min-h-125 w-full flex-col items-center rounded-[20px] bg-cover bg-center px-4 py-10 sm:min-h-137.5 sm:px-8 lg:px-10 lg:py-0 bg-[#131313]"
         style={{
           backgroundImage: `url(${BgShadow})`,
         }}
       >
-        <div className="mt-16 mb-6">
-          <img src={HeroImg} alt="" />
+        {/* Hero Image */}
+        <div className="mt-4 mb-5 sm:mt-8 sm:mb-6 lg:mt-16">
+          <img
+            src={HeroImg}
+            alt="Cricket Team"
+            className="w-56 sm:w-72 lg:w-auto"
+          />
         </div>
 
-        <h1 className="text-[40px] text-white font-bold mb-4">Assemble Your Ultimate Dream 11 Cricket Team</h1>
+        {/* Heading */}
+        <h1 className="mb-3 text-center text-2xl font-bold leading-tight text-white sm:text-3xl lg:mb-4 lg:text-[40px]">
+          Assemble Your Ultimate Dream 11 Cricket Team
+        </h1>
 
-        <p className="text-2xl text-[#ffffffb2] font-medium">Beyond Boundaries Beyond Limits</p>
+        {/* Subtitle */}
+        <p className="text-center text-base font-medium text-[#ffffffb2] sm:text-xl lg:text-2xl">
+          Beyond Boundaries Beyond Limits
+        </p>
 
-        <button className="border-2 border-white rounded-[15px] p-2 mt-6 inline-block">
-          <a href="#" className=" bg-linear-to-r from-[#ca72aa] to-[#f6d066] text-[#131313] px-5 py-3.5 inline-block rounded-lg font-black ">Claim Free Credit</a>
+        {/* Button */}
+        <button className="mt-5 rounded-[15px] border-2 border-white p-1.5 sm:mt-6 sm:p-2">
+          <a
+            href="#"
+            className="inline-block rounded-lg bg-linear-to-r from-[#ca72aa] to-[#f6d066] px-4 py-3 font-black text-[#131313] sm:px-5 sm:py-3.5"
+          >
+            Claim Free Credit
+          </a>
         </button>
       </div>
     </main>
