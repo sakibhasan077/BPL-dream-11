@@ -3,7 +3,7 @@ import BgShadow from "../../assets/image/bg-shadow.png";
 
 const HeroSection = () => {
   return (
-    <main className="container mx-auto mt-24 px-4 sm:mt-28 lg:mt-31 ">
+    <main className="container mx-auto mt-24 px-4 sm:mt-28 lg:mt-31 font-sora">
       <div
         className="flex min-h-125 w-full flex-col items-center rounded-[20px] bg-cover bg-center px-4 py-10 sm:min-h-137.5 sm:px-8 lg:px-10 lg:py-0 bg-[#131313]"
         style={{

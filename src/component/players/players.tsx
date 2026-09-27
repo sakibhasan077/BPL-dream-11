@@ -1,6 +1,6 @@
 const Players = () => {
   return (
-    <main className="container mx-auto mt-24">
+    <section className="container mx-auto mt-24 font-sora">
       {/* Heading and buttons */}
       <div className="flex justify-between items-center">
         {/* heading */}
@@ -11,7 +11,7 @@ const Players = () => {
           <button className="py-3.5 px-7">Selected(0)</button>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 
