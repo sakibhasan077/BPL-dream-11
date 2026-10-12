@@ -1,12 +1,14 @@
+import { use } from "react";
+import type { PlayerInfoType } from "../../type";
+import PlayerCart from "./PlayerCart";
 
-const getData = async () =>{
-  const res = await fetch("/playersData.json");
-  const data = await res.json();
-  return data;
+interface PlayerCartType {
+  playerData : Promise<PlayerInfoType[]>;
 }
 
-const Players = () => {
-  let data = getData();
+
+const Players = ({playerData}:PlayerCartType) => {
+  const data = use(playerData)
   return (
     <section className="container mx-auto mt-24 font-sora">
       {/* Heading and buttons */}
@@ -18,6 +20,12 @@ const Players = () => {
           <button className="py-3.5 px-7">Available</button>
           <button className="py-3.5 px-7">Selected(0)</button>
         </div>
+      </div>
+      {/* Carts */}
+      <div className="grid grid-cols-3 gap-4">
+        {
+          data.map(item=> <PlayerCart playerData={item}></PlayerCart>)
+        }
       </div>
     </section>
   );
