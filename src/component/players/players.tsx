@@ -1,4 +1,12 @@
+
+const getData = async () =>{
+  const res = await fetch("/playersData.json");
+  const data = await res.json();
+  return data;
+}
+
 const Players = () => {
+  let data = getData();
   return (
     <section className="container mx-auto mt-24 font-sora">
       {/* Heading and buttons */}
