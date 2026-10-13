@@ -1,31 +1,32 @@
 import { use } from "react";
 import type { PlayerInfoType } from "../../type";
-import PlayerCart from "./PlayerCart";
+import AvailablePlayerInfo from "./AvailablePlayerInfo";
 
 interface PlayerCartType {
-  playerData : Promise<PlayerInfoType[]>;
+  playerData: Promise<PlayerInfoType[]>;
 }
 
-
-const Players = ({playerData}:PlayerCartType) => {
-  const data = use(playerData)
+const Players = ({ playerData }: PlayerCartType) => {
+  const data = use(playerData);
   return (
     <section className="container mx-auto mt-24 font-sora">
       {/* Heading and buttons */}
       <div className="flex justify-between items-center">
         {/* heading */}
-        <h2 className="text-[28px] font-bold text-[#131313]">Available Players</h2>
+        <h2 className="text-[28px] font-bold text-[#131313]">
+          Available Players
+        </h2>
         {/* Buttons */}
         <div className="text-[rgba(19,19,19,0.6)] border border-[rgba(19,19,19,0.1)] rounded-xl">
           <button className="py-3.5 px-7">Available</button>
           <button className="py-3.5 px-7">Selected(0)</button>
         </div>
       </div>
-      {/* Carts */}
-      <div className="grid grid-cols-3 gap-4">
-        {
-          data.map(item=> <PlayerCart playerData={item}></PlayerCart>)
-        }
+      {/* Available Player Carts */}
+      <div className="grid grid-cols-3 gap-4 mt-9">
+        {data.map((item) => (
+          <AvailablePlayerInfo playerData={item}></AvailablePlayerInfo>
+        ))}
       </div>
     </section>
   );

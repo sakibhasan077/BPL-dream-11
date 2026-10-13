@@ -1,12 +1,12 @@
-import type { PlayerInfoType } from "../../type";
 import Flag from "../../assets/image/originFlag.png";
 import UserIcon from "../../assets/image/userIcon.png";
+import type { PlayerInfoType } from "../../type";
 
 interface PlayerCartType {
   playerData: PlayerInfoType;
 }
 
-const PlayerCart = ({ playerData }: PlayerCartType) => {
+const AvailablePlayerInfo = ({ playerData }: PlayerCartType) => {
   console.log(playerData);
   return (
     <div>
@@ -30,9 +30,7 @@ const PlayerCart = ({ playerData }: PlayerCartType) => {
           <div className="flex justify-between items-center mt-4">
             <div className="flex gap-2 items-center">
               <img className="w-5 h-5 " src={Flag} alt="Origin Flag" />
-              <span className="text-[#898989] ">
-                {playerData.playerOrigin}
-              </span>
+              <span className="text-[#898989] ">{playerData.playerOrigin}</span>
             </div>
             <p className="bg-[#f3f3f3] px-4 py-2 rounded-[10px] text-[#131313] text-[14px] ">
               {playerData.playerType}
@@ -48,9 +46,7 @@ const PlayerCart = ({ playerData }: PlayerCartType) => {
 
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-bold  text-[#131313] ">Batting Style: </h3>
-            <span className="text-[#131313b5]">
-              {playerData.battingStyle}
-            </span>
+            <span className="text-[#131313b5]">{playerData.battingStyle}</span>
           </div>
 
           <div className="flex justify-between items-center mb-4">
@@ -58,7 +54,7 @@ const PlayerCart = ({ playerData }: PlayerCartType) => {
               Price: ${playerData.price}
             </h3>
             <button
-              className={`px-4 py-2.25 border-2 border-[#e7e7e7] rounded-[10px]  "bg-green-700" text-black font-bold "hover:bg-green-900 ` }
+              className={`px-4 py-2.25 border-2 border-[#e7e7e7] rounded-[10px]  cursor-pointer bg-green-700 text-white font-bold "hover:bg-green-900 `}
             >
               Choose Player
             </button>
@@ -69,4 +65,4 @@ const PlayerCart = ({ playerData }: PlayerCartType) => {
   );
 };
 
-export default PlayerCart;
+export default AvailablePlayerInfo;
