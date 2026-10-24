@@ -7,11 +7,13 @@ interface PlayerCartType {
   playerData: Promise<PlayerInfoType[]>;
   choosePlayer: PlayerInfoType[],
   setChoosePlayer: React.Dispatch<React.SetStateAction<PlayerInfoType[]>>;
+  credit: number;
+  setCredit: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const MAX_PLAYERS = 6;
 
-const Players = ({ playerData,choosePlayer,setChoosePlayer }: PlayerCartType) => {
+const Players = ({ playerData,choosePlayer,setChoosePlayer,credit,setCredit }: PlayerCartType) => {
   const [playerOption, setPlayerOption] = useState<boolean>(false);
   const data = use(playerData);
   const handleSelect = () => {
@@ -21,6 +23,11 @@ const Players = ({ playerData,choosePlayer,setChoosePlayer }: PlayerCartType) =>
     setPlayerOption(false);
   };
   const handleRemove = (id: number) => {
+    const removedPlayer = choosePlayer.find((player) => player.id === id);
+    // Refund the removed player's price back to the credit
+    if (removedPlayer) {
+      setCredit((prev) => prev + removedPlayer.price);
+    }
     setChoosePlayer((prev) => prev.filter((player) => player.id !== id));
   };
   return (
@@ -57,6 +64,8 @@ const Players = ({ playerData,choosePlayer,setChoosePlayer }: PlayerCartType) =>
               playerData={item}
               choosePlayer={choosePlayer}
               setChoosePlayer={setChoosePlayer}
+              credit={credit}
+              setCredit={setCredit}
               isFull={choosePlayer.length >= MAX_PLAYERS}
             ></AvailablePlayerInfo>
           ))}

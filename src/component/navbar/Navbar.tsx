@@ -3,7 +3,11 @@ import Logo from "../../assets/image/logo.png";
 
 
 
-const Navbar = () => {
+interface NavbarType {
+  credit: number;
+}
+
+const Navbar = ({ credit }: NavbarType) => {
   return (
     <nav className="fixed top-0 z-50 w-full bg-white py-2 shadow font-sora">
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-0">
@@ -45,7 +49,7 @@ const Navbar = () => {
               className="h-5 w-5"
               alt="Dollar Icon"
             />
-            0
+            {credit.toLocaleString("en-US")}
           </button>
         </div>
 
@@ -59,7 +63,7 @@ const Navbar = () => {
               className="h-4 w-4 sm:h-5 sm:w-5"
               alt="Dollar Icon"
             />
-            0
+            {credit.toLocaleString("en-US")}
           </button>
 
           {/* Hamburger */}

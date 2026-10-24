@@ -6,6 +6,8 @@ interface PlayerCartType {
   playerData: PlayerInfoType;
   choosePlayer: PlayerInfoType[];
   setChoosePlayer: React.Dispatch<React.SetStateAction<PlayerInfoType[]>>;
+  credit: number;
+  setCredit: React.Dispatch<React.SetStateAction<number>>;
   isFull: boolean;
 }
 
@@ -13,13 +15,18 @@ const AvailablePlayerInfo = ({
   playerData,
   setChoosePlayer,
   choosePlayer,
+  credit,
+  setCredit,
   isFull,
 }: PlayerCartType) => {
   const isSelected = choosePlayer.some((player) => player.id === playerData.id);
-  const disabled = isSelected || isFull;
+  const canAfford = playerData.price <= credit;
+  const disabled = isSelected || isFull || !canAfford;
 
   const handleChoosePlayer = () => {
     setChoosePlayer((prev) => [...prev, playerData]);
+    // Deduct the player's price from the remaining credit
+    setCredit((prev) => prev - playerData.price);
   };
   return (
     <div>
@@ -71,7 +78,7 @@ const AvailablePlayerInfo = ({
               className={`px-4 py-2.25 border-2 border-[#e7e7e7] rounded-[10px]  ${disabled ? "cursor-no-drop bg-white text-gray-400 hover:bg-transparent": "cursor-pointer bg-green-700 text-white hover:bg-green-900 "} font-bold `} disabled = {disabled}
             >
               {
-                isSelected ? "✓ Selected" : isFull ? "Limit Reached" : "Choose Player"
+                isSelected ? "✓ Selected" : isFull ? "Limit Reached" : !canAfford ? "Can't Afford" : "Choose Player"
               }
 
             </button>

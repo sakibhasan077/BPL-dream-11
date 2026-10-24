@@ -21,14 +21,18 @@ const getData = async (): Promise<PlayerInfoType[]> => {
 // would re-fetch and re-suspend <Suspense> on every state change.
 const playerPromise: Promise<PlayerInfoType[]> = getData();
 
+// Starting budget shown on the Navbar coin button
+const STARTING_CREDIT = 100000000;
+
 function App() {
   // State
   const [choosePlayer, setChoosePlayer] = useState<PlayerInfoType[]>([])
+  const [credit, setCredit] = useState<number>(STARTING_CREDIT);
   return (
     <Suspense fallback = {<li>Loading...</li>}>
-      <Navbar></Navbar>
+      <Navbar credit = {credit}></Navbar>
       <HeroSection></HeroSection>
-      <Players playerData = {playerPromise} choosePlayer = {choosePlayer} setChoosePlayer = {setChoosePlayer}></Players>
+      <Players playerData = {playerPromise} choosePlayer = {choosePlayer} setChoosePlayer = {setChoosePlayer} credit = {credit} setCredit = {setCredit}></Players>
     </Suspense>
   );
 }
