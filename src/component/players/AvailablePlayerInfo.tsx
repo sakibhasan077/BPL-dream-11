@@ -1,13 +1,26 @@
+import { useState } from "react";
 import Flag from "../../assets/image/originFlag.png";
 import UserIcon from "../../assets/image/userIcon.png";
 import type { PlayerInfoType } from "../../type";
 
 interface PlayerCartType {
   playerData: PlayerInfoType;
+  choosePlayer: PlayerInfoType[];
+  setChoosePlayer: React.Dispatch<React.SetStateAction<PlayerInfoType[]>>;
 }
 
-const AvailablePlayerInfo = ({ playerData }: PlayerCartType) => {
-  console.log(playerData);
+const AvailablePlayerInfo = ({
+  playerData,
+  setChoosePlayer,
+  choosePlayer,
+}: PlayerCartType) => {
+  const [disabled, setDisabled] = useState(false);
+
+  const handleChoosePlayer = (getId: number) => {
+      setChoosePlayer([...choosePlayer, playerData]);
+      setDisabled(true);
+
+  };
   return (
     <div>
       <div>
@@ -54,9 +67,15 @@ const AvailablePlayerInfo = ({ playerData }: PlayerCartType) => {
               Price: ${playerData.price}
             </h3>
             <button
-              className={`px-4 py-2.25 border-2 border-[#e7e7e7] rounded-[10px]  cursor-pointer bg-green-700 text-white font-bold "hover:bg-green-900 `}
+              onClick={() => {
+                handleChoosePlayer(playerData.id);
+              }}
+              className={`px-4 py-2.25 border-2 border-[#e7e7e7] rounded-[10px]  ${disabled ? "cursor-no-drop bg-white text-gray-400 hover:bg-transparent": "cursor-pointer bg-green-700 text-white hover:bg-green-900 "} font-bold `} disabled = {disabled}
             >
-              Choose Player
+              {
+                disabled ? "✓ Selected" : "Choose Player"
+              }
+
             </button>
           </div>
         </div>

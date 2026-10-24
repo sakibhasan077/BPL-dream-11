@@ -4,9 +4,11 @@ import AvailablePlayerInfo from "./AvailablePlayerInfo";
 
 interface PlayerCartType {
   playerData: Promise<PlayerInfoType[]>;
+  choosePlayer: PlayerInfoType[],
+  setChoosePlayer: React.Dispatch<React.SetStateAction<PlayerInfoType[]>>;
 }
 
-const Players = ({ playerData }: PlayerCartType) => {
+const Players = ({ playerData,choosePlayer,setChoosePlayer }: PlayerCartType) => {
   const [playerOption, setPlayerOption] = useState<boolean>(false);
   const data = use(playerData);
   const handleSelect = () => {
@@ -39,10 +41,12 @@ const Players = ({ playerData }: PlayerCartType) => {
           </button>
         </div>
       </div>
+
+      {/* Player Carts  */}
       {!playerOption ? (
         <div className="grid grid-cols-3 gap-4 mt-9">
           {data.map((item) => (
-            <AvailablePlayerInfo playerData={item}></AvailablePlayerInfo>
+            <AvailablePlayerInfo playerData={item} choosePlayer= {choosePlayer}  setChoosePlayer = {setChoosePlayer}></AvailablePlayerInfo>
           ))}
         </div>
       ) : (
