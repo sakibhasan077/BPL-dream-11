@@ -17,15 +17,18 @@ const getData = async (): Promise<PlayerInfoType[]> => {
   return data;
 };
 
+// Fetch data once at module load: creating the promise inside the component
+// would re-fetch and re-suspend <Suspense> on every state change.
+const playerPromise: Promise<PlayerInfoType[]> = getData();
+
 function App() {
   // State
   const [choosePlayer, setChoosePlayer] = useState<PlayerInfoType[]>([])
-  console.log(choosePlayer);
   return (
     <Suspense fallback = {<li>Loading...</li>}>
       <Navbar></Navbar>
       <HeroSection></HeroSection>
-      <Players playerData = {getData()} choosePlayer = {choosePlayer} setChoosePlayer = {setChoosePlayer}></Players>
+      <Players playerData = {playerPromise} choosePlayer = {choosePlayer} setChoosePlayer = {setChoosePlayer}></Players>
     </Suspense>
   );
 }
