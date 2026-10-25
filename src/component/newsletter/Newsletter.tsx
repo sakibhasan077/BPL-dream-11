@@ -1,11 +1,10 @@
-import { useState } from "react";
 import NewsletterShadow from "../../assets/image/newsletterShadow.png";
 
 const Newsletter = () => {
   return (
-    <section className="mt-16 font-sora">
+    <section className="relative z-10 mt-16 font-sora">
       <div className="w-full max-w-6xl mx-auto border-2 border-white rounded-[28px] p-6 bg-[rgba(255,255,255,0.16)] ">
-        <div className="rounded-[28px]  bg-cover bg-center bg-white px-6 py-14 text-center sm:px-10"
+        <div className="rounded-[28px] border border-[rgba(19,19,19,0.18)] bg-cover bg-center bg-white px-6 py-14 text-center sm:px-10"
         style={{
           backgroundImage: `url(${NewsletterShadow})`,
         }}
