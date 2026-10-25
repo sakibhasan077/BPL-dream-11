@@ -3,6 +3,7 @@ import HeroSection from "./component/hero-section/HeroSection";
 import Navbar from "./component/navbar/Navbar";
 import Players from "./component/players/players";
 import type { PlayerInfoType } from "./type";
+import Newsletter from "./component/newsletter/Newsletter";
 
 // Fetch Data from API
 const getData = async (): Promise<PlayerInfoType[]> => {
@@ -33,6 +34,7 @@ function App() {
       <Navbar credit = {credit}></Navbar>
       <HeroSection></HeroSection>
       <Players playerData = {playerPromise} choosePlayer = {choosePlayer} setChoosePlayer = {setChoosePlayer} credit = {credit} setCredit = {setCredit}></Players>
+      <Newsletter></Newsletter>
     </Suspense>
   );
 }
