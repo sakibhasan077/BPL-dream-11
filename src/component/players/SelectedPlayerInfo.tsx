@@ -7,15 +7,15 @@ interface SelectedPlayerInfoType {
 
 const SelectedPlayerInfo = ({ playerData, onRemove }: SelectedPlayerInfoType) => {
   return (
-    <div className="flex items-center justify-between border-2 border-[#e7e7e7] rounded-[10px] p-4 pr-6">
-      <div className="flex items-center gap-4">
+    <div className="flex items-center justify-between gap-3 border-2 border-[#e7e7e7] rounded-[10px] p-3 pr-4 sm:p-4 sm:pr-6">
+      <div className="flex min-w-0 items-center gap-3 sm:gap-4">
         <img
-          className="w-16 h-16 rounded-[10px] object-cover"
+          className="w-12 h-12 rounded-[10px] object-cover sm:w-16 sm:h-16"
           src={playerData.playerImage}
           alt={`${playerData.playerName} Image`}
         />
-        <div>
-          <h3 className="text-[18px] font-semibold text-[#131313]">
+        <div className="min-w-0">
+          <h3 className="text-base font-semibold text-[#131313] sm:text-[18px]">
             {playerData.playerName}
           </h3>
           <p className="text-[14px] text-[#898990] mt-1">

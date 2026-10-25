@@ -31,23 +31,23 @@ const Players = ({ playerData,choosePlayer,setChoosePlayer,credit,setCredit }: P
     setChoosePlayer((prev) => prev.filter((player) => player.id !== id));
   };
   return (
-    <section className="container mx-auto mt-24 font-sora">
+    <section className="container mx-auto mt-24 px-4 font-sora">
       {/* Heading and buttons */}
-      <div className="flex justify-between items-center">
-        <h2 className="text-[28px] font-bold text-[#131313]">
+      <div className="flex flex-wrap justify-between items-center gap-4">
+        <h2 className="text-2xl font-bold text-[#131313] sm:text-[28px]">
           {playerOption
             ? `Selected Player (${choosePlayer.length}/${MAX_PLAYERS})`
             : "Available Players"}
         </h2>
         <div className="text-[rgba(19,19,19,0.6)] border border-[rgba(19,19,19,0.1)] rounded-xl overflow-hidden">
           <button
-            className={`py-3.5 px-7 ${playerOption || "bg-[#E7FE29] text-black font-bold"}`}
+            className={`py-3 px-4 text-sm sm:py-3.5 sm:px-7 sm:text-base ${playerOption || "bg-[#E7FE29] text-black font-bold"}`}
             onClick={handleAvailable}
           >
             Available
           </button>
           <button
-            className={`py-3.5 px-7 ${playerOption && "bg-[#E7FE29] text-black font-bold"}`}
+            className={`py-3 px-4 text-sm sm:py-3.5 sm:px-7 sm:text-base ${playerOption && "bg-[#E7FE29] text-black font-bold"}`}
             onClick={handleSelect}
           >
             Selected Player
@@ -57,7 +57,7 @@ const Players = ({ playerData,choosePlayer,setChoosePlayer,credit,setCredit }: P
 
       {/* Player Carts  */}
       {!playerOption ? (
-        <div className="grid grid-cols-3 gap-4 mt-9">
+        <div className="grid grid-cols-1 gap-4 mt-9 sm:grid-cols-2 lg:grid-cols-3">
           {data.map((item) => (
             <AvailablePlayerInfo
               key={item.id}

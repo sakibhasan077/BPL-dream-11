@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="relative z-0 bg-[#0D0D0D] py-14 font-sora text-white mt-[-150px]">
-      <div className="container mx-auto px-4 lg:px-0 pt-40">
+      <div className="container mx-auto px-4 pt-34 sm:pt-40">
         {/* Logo */}
         <div className="flex justify-center">
           <img src={Logo} alt="Cricket Logo" className="w-24" />

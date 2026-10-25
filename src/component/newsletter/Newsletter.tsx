@@ -2,14 +2,14 @@ import NewsletterShadow from "../../assets/image/newsletterShadow.png";
 
 const Newsletter = () => {
   return (
-    <section className="relative z-10 mt-16 font-sora">
-      <div className="w-full max-w-6xl mx-auto border-2 border-white rounded-[28px] p-6 bg-[rgba(255,255,255,0.16)] ">
-        <div className="rounded-[28px] border border-[rgba(19,19,19,0.18)] bg-cover bg-center bg-white px-6 py-14 text-center sm:px-10"
+    <section className="relative z-10 mt-16 px-4 font-sora">
+      <div className="w-full max-w-6xl mx-auto border-2 border-white rounded-[28px] p-3 sm:p-6 bg-[rgba(255,255,255,0.16)] ">
+        <div className="rounded-[28px] border border-[rgba(19,19,19,0.18)] bg-cover bg-center bg-white px-5 py-10 text-center sm:px-10 sm:py-14"
         style={{
           backgroundImage: `url(${NewsletterShadow})`,
         }}
         >
-          <h2 className="text-[28px] font-bold text-[#131313]">
+          <h2 className="text-2xl font-bold text-[#131313] sm:text-[28px]">
             Subscribe to our Newsletter
           </h2>
           <p className="mt-2 text-[16px] text-[rgba(19,19,19,0.6)]">
